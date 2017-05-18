@@ -66,7 +66,6 @@ export default class BaseMarker extends Marker {
   }
 
   _addListenersForTooltip () {
-    return;
     if (!this._$tooltip) {
       return
     }
