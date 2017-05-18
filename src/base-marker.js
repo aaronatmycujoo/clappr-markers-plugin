@@ -72,7 +72,7 @@ export default class BaseMarker extends Marker {
 
     var $marker = this._$marker
     var hovering = false
-    $marker.bind('mouseover', () => {
+    $marker.bind('mouseover touchmove', () => {
       if (hovering) {
         return
       }
@@ -81,7 +81,7 @@ export default class BaseMarker extends Marker {
       this.notifyTooltipChanged()
     })
 
-    $marker.bind('mouseout', () => {
+    $marker.bind('mouseout touchend', () => {
       if (!hovering) {
         return
       }
