@@ -95,7 +95,7 @@ export default class MarkersPlugin extends UICorePlugin {
   clearMarkers() {
     if (!this._markers) {
       return
-    } 
+    }
     for (let i = this._markers.length - 1; i >= 0; i--) {
       this._removeInternalMarker(i)
     }
@@ -166,7 +166,7 @@ export default class MarkersPlugin extends UICorePlugin {
     markers.forEach((a) => {
       this._markers.push(this._buildInternalMarker(a))
     })
-    
+
     // append the marker elements to the dom
     this._markers.forEach((marker) => {
       this._createMarkerEl(marker)
@@ -182,7 +182,7 @@ export default class MarkersPlugin extends UICorePlugin {
       this._updateMarkerTime(marker)
     }
     marker.emitter.on("timeChanged", marker.timeChangedHandler)
-    $marker.click((e) => {
+    $marker.on('click tap', (e) => {
       // when marker clicked seek to the exact time represented by the marker
       this.core.mediaControl.container.seek(marker.time)
       e.preventDefault()
